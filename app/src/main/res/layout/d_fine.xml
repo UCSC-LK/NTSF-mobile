@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="38dp"
             android:paddingStart=".5in"
-            android:text="@string/driver_2"
+            android:text="Driver Fine"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -117,7 +117,7 @@
         android:layout_height="30dp"
         android:layout_below="@id/Driver_1"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="156dp"
         android:layout_marginEnd="100dp"
         android:autofillHints="B1454575"
         android:background="@color/white"
@@ -127,7 +127,7 @@
         android:singleLine="true"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="LabelFor,MissingConstraints,NotSibling,RtlSymmetry" />
@@ -155,17 +155,17 @@
         android:layout_height="30dp"
         android:layout_below="@id/Driver_1"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="256dp"
         android:autofillHints="B1454575"
         android:background="@color/white"
         android:gravity="left"
         android:hint="KT-4193"
-        android:paddingStart="10dp"
+        android:paddingStart="15dp"
         android:paddingEnd="10dp"
         android:singleLine="true"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="LabelFor,MissingConstraints,NotSibling,RtlSymmetry" />
@@ -175,7 +175,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_below="@id/licence1"
-        android:layout_marginTop="292dp"
+        android:layout_marginTop="300dp"
         android:inputType="text"
         android:paddingStart="20dp"
         android:text="Location :"
@@ -187,14 +187,13 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="LabelFor,MissingConstraints,NotSibling,RtlSymmetry" />
 
-
     <EditText
         android:id="@+id/location"
         android:layout_width="360dp"
         android:layout_height="30dp"
         android:layout_below="@id/Driver_1"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="328dp"
+        android:layout_marginTop="332dp"
         android:autofillHints="B1454575"
         android:background="@color/white"
         android:paddingStart="10dp"
@@ -234,7 +233,7 @@
         android:autofillHints="B1454575"
         android:background="@color/white"
         android:gravity="left"
-        android:hint="D-102"
+        android:hint="12"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:singleLine="true"
@@ -365,7 +364,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_begin="16dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"

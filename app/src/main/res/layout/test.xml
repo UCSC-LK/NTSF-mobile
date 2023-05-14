@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
+    tools:context=".Test"
     tools:ignore="ExtraText">
 
 
@@ -21,7 +21,7 @@
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/D_fines"
+            android:id="@+id/allfines"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="70dp"
@@ -30,7 +30,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:baselineAligned="false"
-            android:text="Driver Offences" />
+            android:text="Vehicle Fines" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/back"
@@ -65,25 +65,29 @@
         tools:ignore="ContentDescription,DuplicateIds,MissingConstraints" />
 
 
-
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/header">
 
         <LinearLayout
-            android:id="@+id/driver_fines"
+            android:id="@+id/vehicle_fines"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:textColor="@android:color/black"
-            android:textStyle="bold">
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/vehicle_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
 
         </LinearLayout>
 

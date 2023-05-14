@@ -1,9 +1,12 @@
 package com.example.login_page;
 
+import android.Manifest;
 import android.app.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,11 +15,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.login_page.R;
+import androidx.core.app.ActivityCompat;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,6 +28,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class D_fine extends Activity implements OnClickListener {
 
@@ -69,14 +72,31 @@ public class D_fine extends Activity implements OnClickListener {
             startActivity(intent);
         });
 
+        Button ImgButton = findViewById(R.id.footagebtn);
+        ImgButton.setOnClickListener(view -> {
+            Intent intent = new Intent(D_fine.this, Footage_D.class);
+            startActivity(intent);
+        });
+
+
+
     }
 
     private void findViewsById() {
+        //Fine no will be autoincremented
+        //Fine Type from session is not required as in web
+
         Licence = findViewById(R.id.licence);
-        VehicleNo = findViewById(R.id.vehicleNo);
-        Location = findViewById(R.id.location);
-        FineNo = findViewById(R.id.FineNo);
-        Description = findViewById(R.id.description);
+        VehicleNo = findViewById(R.id.vehicleNo); //++++should be changed as driven_vehicle_no
+        Location = findViewById(R.id.location); //-----Remove this
+        FineNo = findViewById(R.id.FineNo); //+++Should be changed as offence_no
+        Description = findViewById(R.id.description); // spot_Description
+        ///Date and time set by server
+        //police_id n police_station should be retrieved from session as in web. but police_station tken from server
+        //Fine amount retrieved from offence_no
+        //PAyment Status will be set as "unpaid" by defult in database
+        //LAtitude and longitude SHOULD BE Sent by Android to javascript
+
 
 
         submit = findViewById(R.id.submitbtn);
@@ -131,23 +151,25 @@ public class D_fine extends Activity implements OnClickListener {
             String bookJsonString = null;
             System.out.println("Do in Background");
 
-            final String BOOK_BASE_URL = "http://10.0.2.2:8080/ntsf-backend/fine";
+            final String BOOK_BASE_URL = "http://10.0.2.2:8080/ntsf_backend_war/m_fine";
 
             String Licence_String = Licence.getText().toString();
             String VehicleNo_String = VehicleNo.getText().toString();
             String Location_String = Location.getText().toString();
             String FineNo_String = FineNo.getText().toString();
             String Description_String = Description.getText().toString();
+            Double Latitude = 6.902042;
+            Double Longitude = 79.86133;
 
             Uri uri = Uri.parse(BOOK_BASE_URL)
                     .buildUpon()
-                    .appendQueryParameter("licence_number",Licence_String)
+                    .appendQueryParameter("license_number",Licence_String)
                     .appendQueryParameter("location",Location_String)
                     .appendQueryParameter("fine_no",FineNo_String)
-                    .appendQueryParameter("description",Description_String)
+                    .appendQueryParameter("spot_description",Description_String)
                     .appendQueryParameter("police_id",PoliceId)
-                    .appendQueryParameter("fine_type","DRIVER")
-                    .appendQueryParameter("vehicle_no",VehicleNo_String)
+                    .appendQueryParameter("offence_type","DRIVER")
+                    .appendQueryParameter("driven_vehicle_no",VehicleNo_String)
                     .build();
 
             try {
@@ -207,5 +229,8 @@ public class D_fine extends Activity implements OnClickListener {
 
 
         }
+
+
     }
+
 }

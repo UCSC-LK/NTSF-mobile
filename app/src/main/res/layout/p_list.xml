@@ -30,7 +30,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:baselineAligned="false"
-            android:text="@string/pedestrian_fines" />
+            android:text="Pedestrian Offences" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/back"

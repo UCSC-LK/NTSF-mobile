@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="38dp"
             android:paddingStart=".5in"
-            android:text="@string/vq"
+            android:text="Vehicle Fine"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -60,41 +60,41 @@
 
     </FrameLayout>
 
-    <TextView
-        android:id="@+id/licence1"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@id/Driver_1"
-        android:layout_marginTop="110dp"
-        android:paddingStart="20dp"
-        android:text="@string/owner_nic"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="LabelFor,MissingConstraints,NotSibling,RtlSymmetry" />
+<!--    <TextView-->
+<!--        android:id="@+id/licence1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_below="@id/Driver_1"-->
+<!--        android:layout_marginTop="110dp"-->
+<!--        android:paddingStart="20dp"-->
+<!--        android:text="@string/owner_nic"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:ignore="LabelFor,MissingConstraints,NotSibling,RtlSymmetry" />-->
 
 
-    <EditText
-        android:id="@+id/nic"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@id/Driver_1"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="100dp"
-        android:autofillHints="B1454575"
-        android:background="@color/white"
-        android:inputType="text"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:singleLine="true"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="LabelFor,MissingConstraints,NotSibling,RtlSymmetry" />
+<!--    <EditText-->
+<!--        android:id="@+id/nic"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_below="@id/Driver_1"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginTop="140dp"-->
+<!--        android:layout_marginEnd="100dp"-->
+<!--        android:autofillHints="B1454575"-->
+<!--        android:background="@color/white"-->
+<!--        android:inputType="text"-->
+<!--        android:paddingStart="10dp"-->
+<!--        android:paddingEnd="10dp"-->
+<!--        android:singleLine="true"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:ignore="LabelFor,MissingConstraints,NotSibling,RtlSymmetry" />-->
 
 
     <TextView
@@ -200,7 +200,7 @@
         android:autofillHints="B1454575"
         android:background="@color/white"
         android:gravity="left"
-        android:hint="@string/v_102"
+        android:hint="13"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:singleLine="true"

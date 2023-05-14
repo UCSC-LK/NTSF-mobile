@@ -3,6 +3,7 @@ package com.example.login_page;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +15,13 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+
+        // Get the police ID from the shared preferences
+        PoliceIdSession session = new PoliceIdSession();
+        String policeId = session.getPoliceId(this);
+        // Set the police ID in the TextView
+        TextView policeIdTextView = findViewById(R.id.policeID);
+        policeIdTextView.setText(policeId);
 
         Button logout = findViewById(R.id.logoutbtn);
         logout.setOnClickListener(view -> {

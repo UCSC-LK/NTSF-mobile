@@ -86,25 +86,25 @@ public class V_fine extends Activity implements OnClickListener {
 
     public void onClick(View view){
         System.out.println("Inside click");
-        String Nic_String = Nic.getText().toString();
+//        String Nic_String = Nic.getText().toString();
         String VehicleNo_String = VehicleNo.getText().toString();
         String Location_String = Location.getText().toString();
         String FineNo_String = FineNo.getText().toString();
         String Description_String = Description.getText().toString();
 
-        if(Nic_String.matches("") || VehicleNo_String.matches("")
+        if(VehicleNo_String.matches("")
                 || Location_String.matches("") || FineNo_String.matches("") || Description_String.matches("")){
             System.out.println("Empty");
             TextView incompleteFieldsMessage = findViewById(R.id.incomplete_fields_message);
-//            Toast.makeText(c, incompleteFieldsMessage.getText().toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(c, incompleteFieldsMessage.getText().toString(), Toast.LENGTH_LONG).show();
             incompleteFieldsMessage.setVisibility(View.VISIBLE);
 
             TextView credentialsFieldsMessage = findViewById(R.id.credentials_error);
-//            Toast.makeText(c, incompleteFieldsMessage.getText().toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(c, incompleteFieldsMessage.getText().toString(), Toast.LENGTH_LONG).show();
             credentialsFieldsMessage.setVisibility(View.INVISIBLE);
 
 
-//            Toast.makeText(c, "Fields are Incomplete", Toast.LENGTH_LONG).show();
+            Toast.makeText(c, "Fields are Incomplete", Toast.LENGTH_LONG).show();
         } else {
             new DFineAsynTask().execute();
 
@@ -130,9 +130,9 @@ public class V_fine extends Activity implements OnClickListener {
             String bookJsonString = null;
             System.out.println("Do in Background");
 
-            final String BOOK_BASE_URL = "http://10.0.2.2:8080/ntsf-backend/fineVehicle";
+            final String BOOK_BASE_URL = "http://10.0.2.2:8080/ntsf_backend_war/fineVehicle";
 
-            String Nic_String = Nic.getText().toString();
+//            String Nic_String = Nic.getText().toString();
             String VehicleNo_String = VehicleNo.getText().toString();
             String Location_String = Location.getText().toString();
             String FineNo_String = FineNo.getText().toString();
@@ -140,12 +140,11 @@ public class V_fine extends Activity implements OnClickListener {
 
             Uri uri = Uri.parse(BOOK_BASE_URL)
                     .buildUpon()
-                    .appendQueryParameter("nic",Nic_String)
                     .appendQueryParameter("location",Location_String)
-                    .appendQueryParameter("fine_no",FineNo_String)
-                    .appendQueryParameter("description",Description_String)
+                    .appendQueryParameter("offence_no",FineNo_String)
+                    .appendQueryParameter("spot_description",Description_String)
                     .appendQueryParameter("police_id",PoliceId)
-                    .appendQueryParameter("fine_type","VEHICLE")
+                    .appendQueryParameter("offence_type","VEHICLE")
                     .appendQueryParameter("vehicle_no",VehicleNo_String)
                     .build();
 

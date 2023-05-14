@@ -4,43 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
-    tools:ignore="ExtraText">
+    tools:context=".Footage_D">
 
 
     <FrameLayout
         android:id="@+id/header"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="11dp"
+        android:layout_width="421dp"
+        android:layout_height="86dp"
         android:background="#C9D3DD"
-        app:layout_constraintBottom_toBottomOf="@+id/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/D_fines"
+            android:id="@+id/Footage_head"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="70dp"
             android:layout_marginTop="30dp"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
             android:baselineAligned="false"
-            android:text="Driver Offences" />
+            android:text="Footage"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
             android:backgroundTint="@color/white"
             android:drawableEnd="@drawable/ic_baseline_arrow_back_24"
-            android:layout_gravity="right"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
             android:text="@string/back"
             android:textColor="@color/black"
             android:textSize="11sp"
@@ -57,54 +51,46 @@
         android:layout_width="63dp"
         android:layout_height="87dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="4dp"
         android:contentDescription="@string/todo"
         android:src="@drawable/logo"
-        app:layout_constraintStart_toStartOf="@+id/header"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription,DuplicateIds,MissingConstraints" />
-
+        tools:ignore="ContentDescription,DuplicateIds,MissingConstraints"
+        tools:layout_editor_absoluteY="4dp" />
 
 
     <ScrollView
-        android:id="@+id/scroll"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header">
+        android:id="@+id/scrollView"
+        android:layout_width="373dp"
+        android:layout_height="538dp"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="114dp">
 
         <LinearLayout
-            android:id="@+id/driver_fines"
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:textColor="@android:color/black"
-            android:textStyle="bold">
+            android:orientation="vertical">
 
         </LinearLayout>
 
     </ScrollView>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/upload"
+        android:layout_width="129dp"
+        android:layout_height="58dp"
+        android:layout_gravity="right"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="664dp"
+        android:backgroundTint="@color/black"
+        android:drawableEnd="@drawable/ic_baseline_arrow_back_24"
+        android:text="upload +"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:cornerRadius="15in"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="InOrMmUsage,RtlHardcoded" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
