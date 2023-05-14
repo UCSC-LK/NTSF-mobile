@@ -90,7 +90,7 @@ public class Login extends Activity implements OnClickListener {
             String bookJSONString = null;
             System.out.println("do in background");
             // Base URL for Books API.
-            final String BOOK_BASE_URL = "http://10.0.2.2:8080/ntsf-backend/policelogin";
+            final String BOOK_BASE_URL = "http://10.0.2.2:8080/ntsf_backend_war/policelogin";
 //            final String USER_TYPE_PARAM = "user_type";
             final String LOGIN_ID_PARAM = "police_id";
             final String PASSWORD_PARAM = "password";

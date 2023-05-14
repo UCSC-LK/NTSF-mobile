@@ -1,10 +1,12 @@
 package com.example.login_page;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -48,7 +50,7 @@ public class P_list extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(P_list.this, Home.class);
+                Intent intent = new Intent(P_list.this, P_fine.class);
                 startActivity(intent);
             }
         });
@@ -66,7 +68,7 @@ public class P_list extends AppCompatActivity {
         String bookJsonString = null;
         System.out.println("Do in Background");
 
-        final String BASE_URL = "http://10.0.2.2:8080/ntsf-backend/offenceList";
+        final String BASE_URL = "http://10.0.2.2:8080/ntsf_backend_war/offenceList";
 
         StringBuilder builder;
         try {
@@ -122,7 +124,7 @@ public class P_list extends AppCompatActivity {
             String bookJsonString = null;
             System.out.println("Do in Background");
 
-            final String BASE_URL = "http://10.0.2.2:8080/ntsf-backend/offenceList";
+            final String BASE_URL = "http://10.0.2.2:8080/ntsf_backend_war/offenceList";
 
             StringBuilder builder;
             try {
@@ -205,11 +207,11 @@ public class P_list extends AppCompatActivity {
                     throw new RuntimeException(e);
                 }
 
-                if (offenceType.equals("d")) {
+                if (offenceType.equals("driver")) {
                     jsonArrayD.put(jsonObject);
-                } else if (offenceType.equals("v")) {
+                } else if (offenceType.equals("vehicle")) {
                     jsonArrayV.put(jsonObject);
-                } else if (offenceType.equals("p")) {
+                } else if (offenceType.equals("pedestrian")) {
                     jsonArrayP.put(jsonObject);
                 }
             }
@@ -369,14 +371,74 @@ public class P_list extends AppCompatActivity {
                 }
 
 
-                TextView textView = new TextView(c);
-                textView.setText(i+1+". "+"\n"+"Amount: " + amount + "\n" +
-                        "Offence Type: " + offenceType + "\n" +
-                        "Description: " + description + "\n" +
-                        "Point Weight: " + pointWeight + "\n" +
-                        "Offence No: " + offenceNo + "\n");
-                textView.setTextColor(Color.BLACK);
-                layoutPedestrian.addView(textView);
+//                TextView textView = new TextView(c);
+//                textView.setText(i+1+". "+"\n"+"Amount: " + amount + "\n" +
+//                        "Offence Type: " + offenceType + "\n" +
+//                        "Description: " + description + "\n" +
+//                        "Point Weight: " + pointWeight + "\n" +
+//                        "Offence No: " + offenceNo + "\n");
+//                textView.setTextColor(Color.BLACK);
+//                layoutPedestrian.addView(textView);
+
+                CardView cardView = new CardView(c);
+                CardView.LayoutParams layoutParams = new CardView.LayoutParams(
+                        CardView.LayoutParams.MATCH_PARENT,
+                        CardView.LayoutParams.WRAP_CONTENT
+                );
+                layoutParams.setMargins(0, 12, 0, 12); // Set margin bottom to 12dp
+                cardView.setLayoutParams(layoutParams);
+                cardView.setCardBackgroundColor(Color.parseColor("#d0c6c6"));
+                cardView.setRadius(16);
+                cardView.setContentPadding(32, 32, 32, 32);
+                cardView.setCardElevation(8);
+                cardView.setMaxCardElevation(16);
+
+                LinearLayout linearLayout = new LinearLayout(c);
+                linearLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                ));
+                linearLayout.setOrientation(LinearLayout.VERTICAL);
+
+                TextView textViewTitle = new TextView(c);
+//                textViewTitle.setText(i+1+". "+"\n"+
+//                        "Offence No     :  " + offenceNo);
+
+                textViewTitle.setText("Offence No : "+ offenceNo);
+                textViewTitle.setTypeface(null, Typeface.BOLD);
+
+                textViewTitle.setTextColor(Color.BLACK);
+                textViewTitle.setTextSize(15); // set title font size
+                linearLayout.addView(textViewTitle);
+
+//                TextView offenceTypeTextView = new TextView(c);
+//                offenceTypeTextView.setText("Offence Type  :  " + offenceType);
+//                offenceTypeTextView.setTextColor(Color.BLACK);
+//                linearLayout.addView(offenceTypeTextView);
+
+                TextView descriptionTextView = new TextView(c);
+                descriptionTextView.setText("Description     :  " + description);
+                descriptionTextView.setTextColor(Color.BLACK);
+                linearLayout.addView(descriptionTextView);
+
+//                TextView offenceNoTextView = new TextView(c);
+//                offenceNoTextView.setText("List No            :  " + offenceNo);
+//                offenceNoTextView.setTextColor(Color.BLACK);
+//                linearLayout.addView(offenceNoTextView);
+
+                TextView pointWeightTextView = new TextView(c);
+                pointWeightTextView.setText("Point Weight   : " + pointWeight);
+                pointWeightTextView.setTextColor(Color.BLACK);
+                linearLayout.addView(pointWeightTextView);
+
+                TextView amountTextView = new TextView(c);
+                amountTextView.setText("Amount           :  LKR  " + amount + " /=");
+                amountTextView.setTextColor(Color.BLACK);
+                linearLayout.addView(amountTextView);
+
+                cardView.addView(linearLayout);
+                layoutPedestrian.addView(cardView);
+
             }
             // Update UI here
         }

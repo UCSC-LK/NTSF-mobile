@@ -1,12 +1,10 @@
 package com.example.login_page;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +27,7 @@ import java.util.ArrayList;
 
 
 
-public class D_list extends AppCompatActivity {
+public class Test extends AppCompatActivity {
 
     private Button Back;
     JSONArray list;
@@ -42,7 +40,7 @@ public class D_list extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.d_list);
+        setContentView(R.layout.v_list);
 
 
 
@@ -50,7 +48,7 @@ public class D_list extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(D_list.this, D_fine.class);
+                Intent intent = new Intent(Test.this, Home.class);
                 startActivity(intent);
             }
         });
@@ -68,7 +66,7 @@ public class D_list extends AppCompatActivity {
         String bookJsonString = null;
         System.out.println("Do in Background");
 
-        final String BASE_URL = "http://10.0.2.2:8080/ntsf_backend_war/offenceList";
+        final String BASE_URL = "http://10.0.2.2:8082/ntsf-backend/offenceList";
 
         StringBuilder builder;
         try {
@@ -124,7 +122,7 @@ public class D_list extends AppCompatActivity {
             String bookJsonString = null;
             System.out.println("Do in Background");
 
-            final String BASE_URL = "http://10.0.2.2:8080/ntsf_backend_war/offenceList";
+            final String BASE_URL = "http://10.0.2.2:8082/ntsf-backend/offenceList";
 
             StringBuilder builder;
             try {
@@ -185,8 +183,8 @@ public class D_list extends AppCompatActivity {
 
 
             LinearLayout layoutDriver = findViewById(R.id.driver_fines);
-//            LinearLayout layoutVehicle = findViewById(R.id.vehicle_fines);
-//            LinearLayout layoutPedestrian = findViewById(R.id.pedestrian_fines);
+            LinearLayout layoutVehicle = findViewById(R.id.vehicle_fines);
+            LinearLayout layoutPedestrian = findViewById(R.id.pedestrian_fines);
 
             JSONArray jsonArrayD = new JSONArray();
             JSONArray jsonArrayV = new JSONArray();
@@ -207,11 +205,11 @@ public class D_list extends AppCompatActivity {
                     throw new RuntimeException(e);
                 }
 
-                if (offenceType.equals("driver")) {
+                if (offenceType.equals("d")) {
                     jsonArrayD.put(jsonObject);
-                } else if (offenceType.equals("vehicle")) {
+                } else if (offenceType.equals("v")) {
                     jsonArrayV.put(jsonObject);
-                } else if (offenceType.equals("pedestrian")) {
+                } else if (offenceType.equals("p")) {
                     jsonArrayP.put(jsonObject);
                 }
             }
@@ -224,10 +222,13 @@ public class D_list extends AppCompatActivity {
             JSONObject jsonObject;
 
 
-            for (int i = 0; i < jsonArrayD.length(); i++) {
+            JSONArray jsonArray = null;
+            jsonArray = list;
+
+            for (int i = 0; i < jsonArrayV.length(); i++) {
 
                 try {
-                    jsonObject = jsonArrayD.getJSONObject(i);
+                    jsonObject = jsonArrayV.getJSONObject(i);
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
@@ -264,75 +265,16 @@ public class D_list extends AppCompatActivity {
                 }
 
 
-//                TextView textView = new TextView(c);
-//                textView.setText(i+1+". "+"\n"+"Amount: " + amount + "\n" +
-//                        "Offence Type: " + offenceType + "\n" +
-//                        "Description: " + description + "\n" +
-//                        "Point Weight: " + pointWeight + "\n" +
-//                        "Offence No: " + offenceNo + "\n");
-//                textView.setTextColor(Color.BLACK);
-//                layoutDriver.addView(textView);
-
-                CardView cardView = new CardView(c);
-                CardView.LayoutParams layoutParams = new CardView.LayoutParams(
-                        CardView.LayoutParams.MATCH_PARENT,
-                        CardView.LayoutParams.WRAP_CONTENT
-                );
-                layoutParams.setMargins(0, 12, 0, 12); // Set margin bottom to 12dp
-                cardView.setLayoutParams(layoutParams);
-                cardView.setCardBackgroundColor(Color.parseColor("#C2E9BF"));
-                cardView.setRadius(16);
-                cardView.setContentPadding(32, 32, 32, 32);
-                cardView.setCardElevation(8);
-                cardView.setMaxCardElevation(16);
-
-                LinearLayout linearLayout = new LinearLayout(c);
-                linearLayout.setLayoutParams(new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                ));
-                linearLayout.setOrientation(LinearLayout.VERTICAL);
-
-                TextView textViewTitle = new TextView(c);
-//                textViewTitle.setText(i+1+". "+"\n"+
-//                        "Offence No     :  " + offenceNo);
-
-                textViewTitle.setText("Offence No : " + offenceNo);
-                textViewTitle.setTypeface(null, Typeface.BOLD);
-
-                textViewTitle.setTextColor(Color.BLACK);
-                textViewTitle.setTextSize(15); // set title font size
-                linearLayout.addView(textViewTitle);
-
-//                TextView offenceTypeTextView = new TextView(c);
-//                offenceTypeTextView.setText("Offence Type  :  " + offenceType);
-//                offenceTypeTextView.setTextColor(Color.BLACK);
-//                linearLayout.addView(offenceTypeTextView);
-
-                TextView descriptionTextView = new TextView(c);
-                descriptionTextView.setText("Description     :  " + description);
-                descriptionTextView.setTextColor(Color.BLACK);
-                linearLayout.addView(descriptionTextView);
-
-//                TextView offenceNoTextView = new TextView(c);
-//                offenceNoTextView.setText("List No            :  " + offenceNo);
-//                offenceNoTextView.setTextColor(Color.BLACK);
-//                linearLayout.addView(offenceNoTextView);
-
-                TextView pointWeightTextView = new TextView(c);
-                pointWeightTextView.setText("Point Weight   : " + pointWeight);
-                pointWeightTextView.setTextColor(Color.BLACK);
-                linearLayout.addView(pointWeightTextView);
-
-                TextView amountTextView = new TextView(c);
-                amountTextView.setText("Amount           :  LKR  " + amount + " /=");
-                amountTextView.setTextColor(Color.BLACK);
-                linearLayout.addView(amountTextView);
-
-                cardView.addView(linearLayout);
-                layoutDriver.addView(cardView);
-
+                TextView textView = new TextView(c);
+                textView.setText(i+1+". "+"\n"+"Amount: " + amount + "\n" +
+                        "Offence Type: " + offenceType + "\n" +
+                        "Description: " + description + "\n" +
+                        "Point Weight: " + pointWeight + "\n" +
+                        "Offence No: " + offenceNo + "\n");
+                textView.setTextColor(Color.BLACK);
+                layoutVehicle.addView(textView);
             }
+
 
         }
     }

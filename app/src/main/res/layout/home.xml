@@ -31,7 +31,7 @@
             tools:ignore="InOrMmUsage" />
 
         <TextView
-            android:id="@+id/NTSF"
+            android:id="@+id/policeID"
             android:layout_width="172dp"
             android:layout_height="31dp"
             android:layout_marginTop="38dp"
@@ -137,7 +137,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:backgroundTint="#CBCBCB"
-        android:text="@string/view_all_fines"
+        android:text="View all Offences"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

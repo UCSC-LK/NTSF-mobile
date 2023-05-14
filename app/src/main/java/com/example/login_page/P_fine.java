@@ -129,7 +129,7 @@ public class P_fine extends Activity implements OnClickListener {
             String bookJsonString = null;
             System.out.println("Do in Background");
 
-            final String BOOK_BASE_URL = "http://10.0.2.2:8080/ntsf-backend/finePedestrian";
+            final String BOOK_BASE_URL = "http://10.0.2.2:8080/ntsf_backend_war/finePedestrian";
 
             String Nic_String = Nic.getText().toString();
             String Location_String = Location.getText().toString();
@@ -140,10 +140,10 @@ public class P_fine extends Activity implements OnClickListener {
                     .buildUpon()
                     .appendQueryParameter("nic",Nic_String)
                     .appendQueryParameter("location",Location_String)
-                    .appendQueryParameter("fine_no",FineNo_String)
-                    .appendQueryParameter("description",Description_String)
+                    .appendQueryParameter("offence_no",FineNo_String)
+                    .appendQueryParameter("spot_description",Description_String)
                     .appendQueryParameter("police_id",PoliceId)
-                    .appendQueryParameter("fine_type","PEDESTRIAN")
+                    .appendQueryParameter("offence_type","PEDESTRIAN")
                     .build();
 
             try {

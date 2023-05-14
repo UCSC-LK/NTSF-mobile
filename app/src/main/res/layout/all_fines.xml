@@ -30,7 +30,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:baselineAligned="false"
-            android:text="@string/all_fines" />
+            android:text="All Offences" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/back"
